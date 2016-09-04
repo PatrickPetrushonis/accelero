@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &144004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 444004}
+  - 114: {fileID: 11443998}
+  - 114: {fileID: 11444004}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &444004
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11443998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d1d99aac38e2149b8ec602ddd642f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  HUD: {fileID: 0}
+  gameOver: {fileID: 0}
+  score: {fileID: 0}
+  finalStat: {fileID: 0}
+  health: {fileID: 0}
+  fill: {fileID: 0}
+  damageFlash: {fileID: 0}
+--- !u!114 &11444004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf3809f7a3abe74b8f4e641ba507bb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+  spawnDelay: 1.5
+  spawnTime: .100000001
+  spread: 20
+  rates:
+  - totalRate: 0200000008000000
+    enemyRate: 0a00000000000000
+    collectRate: 080000000200000000000000
+  - totalRate: 0300000007000000
+    enemyRate: 0900000001000000
+    collectRate: 070000000200000001000000
+  - totalRate: 0400000006000000
+    enemyRate: 0800000002000000
+    collectRate: 070000000200000001000000
+  - totalRate: 0500000005000000
+    enemyRate: 0700000003000000
+    collectRate: 070000000200000001000000
+  - totalRate: 0600000004000000
+    enemyRate: 0600000004000000
+    collectRate: 060000000200000002000000
+  - totalRate: 0700000003000000
+    enemyRate: 0500000005000000
+    collectRate: 060000000200000002000000
+  - totalRate: 0700000003000000
+    enemyRate: 0400000006000000
+    collectRate: 060000000200000002000000
+  - totalRate: 0700000003000000
+    enemyRate: 0200000008000000
+    collectRate: 060000000200000002000000
+  objectPool:
+  - slotObject: {fileID: 100420, guid: 5a1e33bafa3da2449a5428990e99a6c5, type: 2}
+    slotAmount: 50
+  - slotObject: {fileID: 100420, guid: c2c54f21636a3bf40a6cef78aa9ddb14, type: 2}
+    slotAmount: 50
+  - slotObject: {fileID: 179972, guid: 2a73b308cc69a5846b8ba1e50887be49, type: 2}
+    slotAmount: 30
+  - slotObject: {fileID: 159642, guid: fa40aca9cc9a4a7428d572f9c5202380, type: 2}
+    slotAmount: 20
+  - slotObject: {fileID: 122878, guid: 3e2d88f12e629134a89ab9743f971f2b, type: 2}
+    slotAmount: 10
+  effectPool:
+  - slotObject: {fileID: 160466, guid: 6bda00abaf929414faddc43b9e02ee7c, type: 2}
+    slotAmount: 3
+  - slotObject: {fileID: 160466, guid: 82bd7070ea8dee24f8c438455d039bad, type: 2}
+    slotAmount: 3
+  - slotObject: {fileID: 185534, guid: ad1f8a9b11ddf9a409872f4a3caf083e, type: 2}
+    slotAmount: 3
+  - slotObject: {fileID: 146020, guid: 430227df61d5c654087149932caca340, type: 2}
+    slotAmount: 3
+  - slotObject: {fileID: 185534, guid: fc8f8809a1ec290489d11279216a94f8, type: 2}
+    slotAmount: 3
+  - slotObject: {fileID: 166334, guid: 2ed335e9d2dd7f941aad454baf8afe60, type: 2}
+    slotAmount: 1
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 144004}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1
