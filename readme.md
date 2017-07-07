@@ -33,6 +33,7 @@ Industry leading game development engine.
 IDE and package installer for building to Android platform.
 
 * [Download](https://developer.android.com/studio/index.html)
+	* [NDK](https://developer.android.com/ndk/downloads/index.html)
 * [Guide](https://developer.android.com/studio/install.html)
 * [Documentation](https://developer.android.com/studio/intro/index.html)
 
