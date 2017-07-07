@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -58,19 +59,28 @@ public class GameControl : MonoBehaviour
 
     void OnEnable()
     {
+        // Add OnLevelFinishedLoading to scene loaded delegate
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+
         //load all record data
         LoadData();
 
         //load player settings
-        if(PlayerPrefs.HasKey("volume"))  data.volume = Convert.ToBoolean(PlayerPrefs.GetFloat("volume"));
-        if(PlayerPrefs.HasKey("sensitivity")) SetSensitivity(PlayerPrefs.GetFloat("sensitivity"));
-        if(PlayerPrefs.HasKey("inversion")) SetControlInversion(PlayerPrefs.GetInt("inversion"));        
+        if(PlayerPrefs.HasKey("volume")) { data.volume = Convert.ToBoolean(PlayerPrefs.GetFloat("volume")); }
+        if(PlayerPrefs.HasKey("sensitivity")) { SetSensitivity(PlayerPrefs.GetFloat("sensitivity")); }
+        if(PlayerPrefs.HasKey("inversion")) { SetControlInversion(PlayerPrefs.GetInt("inversion")); }
     }
 
-    void OnLevelWasLoaded(int level)
+    void OnDisable()
+    {
+        // Unsubscribe sceneloaded delegate from OnLevelFinishedLoading
+        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+    }
+
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         //ensure game is unpaused
-        if(level == Application.loadedLevel) SetPause(false);
+        if(scene.name == Application.loadedLevelName) { SetPause(false); }
     }
 
     void FixedUpdate()

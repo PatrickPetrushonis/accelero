@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class FlightControl : MonoBehaviour 
@@ -25,14 +26,30 @@ public class FlightControl : MonoBehaviour
         }        
     }
 
-    void OnLevelWasLoaded(int level)
+    void OnEnable()
     {
-        if(level == Application.loadedLevel)
-        {
-            if(GameControl.control.GetControlInversion()) 
+        // Add OnLevelFinishedLoading to scene loaded delegate
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+    }
+
+    void OnDisable()
+    {
+        // Unsubscribe sceneloaded delegate from OnLevelFinishedLoading
+        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+    }
+
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    {
+        //ensure game is unpaused
+        if(scene.name == Application.loadedLevelName) {
+            if(GameControl.control.GetControlInversion())
+            {
                 inversion = 1f;
-            else 
+            }
+            else
+            {
                 inversion = -1f;
+            }
         }
     }
 
