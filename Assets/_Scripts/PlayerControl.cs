@@ -59,7 +59,7 @@ public class PlayerControl : MonoBehaviour
     void FixedUpdate()
     {
         //continuous forward movement
-        transform.rigidbody2D.velocity = transform.up * GameControl.control.GetMoveSpeed();
+        transform.GetComponent<Rigidbody2D>().velocity = transform.up * GameControl.control.GetMoveSpeed();
         //reorientation of player in relation to accelerometer input
         OrientPlayer();
 

@@ -45,7 +45,7 @@ public class Deactivator : MonoBehaviour
             do { vertical = UnityEngine.Random.Range(-1, 1); }
             while(vertical == 0);
 
-            transform.rigidbody2D.AddForce(new Vector2(horizontal, vertical) * moveSpeed, ForceMode2D.Impulse);
+            transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(horizontal, vertical) * moveSpeed, ForceMode2D.Impulse);
         }
     }
 
